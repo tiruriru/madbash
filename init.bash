@@ -4,7 +4,7 @@
 # Mad Bash initializer and defaults.
 #-------------------------------------------------------------------------------
 
-echo -n "Loading Mas Bash: "
+echo -n "Loading Mad Bash: "
 
 # Set correct path.
 #-------------------------------------------------------------------------------
