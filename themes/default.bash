@@ -70,12 +70,12 @@ __rc_ps1()
 __prompt_cmd()
 {
     RET="$?"
-    PS1="${LIGHT_BLUE}\u${BLUE}@\h${RESET}" # user@host
+    PS1="${LIGHT_BLUE}\u${BLUE}@\h${RESET}"  # user@host
     PS1="$PS1$(__rc_ps1)"                    # last exit code
     PS1="$PS1$(__ruby_ps1)"                  # ruby version (@gemset)
     PS1="$PS1$(__git_ps1)"                   # git branch and status
     PS1="$PS1 : ${YELLOW}\w${RESET}"         # working directory
-    PS1="$PS1\n${GRAY}\$${RESET} "         # prompt
+    PS1="$PS1\n${GRAY}\$${RESET} "           # prompt
 }
 
 # Export prompt command.
