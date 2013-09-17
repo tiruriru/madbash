@@ -7,12 +7,13 @@
 # Custom aliases.
 #-------------------------------------------------------------------------------
 alias gst='git status'
-alias gcm='git commit'
+alias gct='git commit'
+alias gcm='git commit -m'
+alias gci='git commit --interactive'
+alias gca='git commit --amend'
 alias gaa='git add .'
 alias gau='git add -u .'
 alias gad='git add'
-alias gci='git commit --interactive'
-alias gca='git commit --amend'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gii='git init'
