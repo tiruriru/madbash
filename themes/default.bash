@@ -4,22 +4,33 @@
 # My default theme.
 #-------------------------------------------------------------------------------
 
+# Color definitions and helpers.
+#-------------------------------------------------------------------------------
+
 cr()
 {
     echo "\[\033[$1m\]"
 }
 
-cc()
-{
-    cr 0
-}
+RED=`cr '0;31'`
+GREEN=`cr '0;32'`
+YELLOW=`cr '0;33'`
+BLUE=`cr '0;34'`
+LIGHT_BLUE=`cr '1;34'`
+PURPLE=`cr '0;35'`
+LIGHT_PURPLE=`cr '1;35'`
+GRAY=`cr '0;30'`
+RESET=`cr 0`
+
+# Prompt helper functions.
+#-------------------------------------------------------------------------------
 
 __git_status()
 {
     if [[ $(git status --porcelain) != "" ]]; then
-	echo "$(cr '0;35')+$(cr '1;35')$1$(cc)"
+	echo "${PURPLE}+${LIGHT_PURPLE}$1${RESET}"
     else
-	echo "$(cr '0;32')$1$(cc)"
+	echo "${GREEN}$1${RESET}"
     fi
 }
 
@@ -50,21 +61,23 @@ __ruby_ps1()
 __rc_ps1()
 {
     if (( $RET == 0 )); then
-	echo "($(cr '0;32')$RET$(cc))"
+	echo "(${GREEN}$RET${RESET})"
     else
-	echo "($(cr '0;31')$RET$(cc))"
+	echo "(${RED}$RET${RESET})"
     fi
 }
 
 __prompt_cmd()
 {
     RET="$?"
-    PS1="$(cr '1;34')\u$(cr '0;34')@\h$(cc)" # user@host
+    PS1="${LIGHT_BLUE}\u${BLUE}@\h${RESET}" # user@host
     PS1="$PS1$(__rc_ps1)"                    # last exit code
     PS1="$PS1$(__ruby_ps1)"                  # ruby version (@gemset)
     PS1="$PS1$(__git_ps1)"                   # git branch and status
-    PS1="$PS1 : $(cr '0;33')\w$(cc)"         # working directory
-    PS1="$PS1\n$(cr '0;30')\$$(cc) "         # prompt
+    PS1="$PS1 : ${YELLOW}\w${RESET}"         # working directory
+    PS1="$PS1\n${GRAY}\$${RESET} "         # prompt
 }
 
+# Export prompt command.
+#-------------------------------------------------------------------------------
 export PROMPT_COMMAND=__prompt_cmd
