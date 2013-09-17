@@ -10,5 +10,5 @@ TODO: ...
 
 ## Copying
 
-Copyright (C) 2013 Chris Kowalik <chris@nu7hat.ch>
+Copyright (C) 2013 Chris Kowalik <chris@nu7hat.ch><br />
 Check LICENSE.txt for details.
