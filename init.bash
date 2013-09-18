@@ -4,7 +4,34 @@
 # Mad Bash initializer and defaults.
 #-------------------------------------------------------------------------------
 
-echo -n "Loading Mad Bash: "
+VERSION="0.0.1"
+
+echo -n "Loading Mad Bash (v$VERSION): "
+
+# Global functions and helpers.
+#-------------------------------------------------------------------------------
+madbash() {
+    case "$1" in
+	"plugins")
+	    ls -1 $MADBASH/plugins | grep '.bash$' | sed -e 's/\.bash//'
+	    ;;
+	"reload")
+	    source $MADBASH/init.bash
+	    ;;
+	"version")
+	    echo "Mad Bash v$VERSION"
+	    ;;
+	"help")
+	    echo "Usage: madbash <action>"
+	    echo "Available actions: help, plugins, reload, version"
+	    ;;
+	*)
+	    echo "ERR -- invalid action" >&2
+	    madbash help
+	    return 1
+	    ;;
+    esac
+}
 
 # Set correct path.
 #-------------------------------------------------------------------------------
@@ -21,7 +48,7 @@ OS=`uname -s`
 # Load plugins.
 #-------------------------------------------------------------------------------
 if [[ $PLUGINS == 'all' ]]; then
-    PLUGINS=$(ls -1 $MADBASH/plugins | grep '.bash$' | sed -e 's/\.bash//')
+    PLUGINS=$(madbash plugins)
 fi
 
 for plugin in $PLUGINS; do
