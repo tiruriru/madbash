@@ -8,7 +8,7 @@ THEME=default
 
 # Load selected plugins.
 #-------------------------------------------------------------------------------
-PLUGINS='core rvm git homebrew bundler foreman'
+PLUGINS='all'
 
 # Select default editor.
 #-------------------------------------------------------------------------------
