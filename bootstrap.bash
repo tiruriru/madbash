@@ -9,15 +9,24 @@
 MADBASH=${1:-$HOME/.madbash}
 
 if [[ -d $MADBASH ]]; then
-    read -p "Mad Bash seems to be installed there, wanna force it? [yN]: " answer
+    printf "Mad Bash seems to be installed there, wanna force it? [yN]: "
+    read </dev/tty
     
-    if [[ $answer != 'y' ]] && [[ $answer != 'Y' ]]; then
-	echo "Ok, exiting..." >&2
+    if [[ $REPLY != 'y' ]] && [[ $REPLY != 'Y' ]]; then
+	echo "Exiting..." >&2
 	exit 1
-    fi	
+    else
+	echo "Overriding previous installation..."
+    fi
 fi
 
+echo "Preparing..."
 rm -rf $MADBASH
-git clone git://github.com/tiruriru/madbash.git $MADBASH
+echo "Cloning source code..."
+git clone -q git://github.com/tiruriru/madbash.git $MADBASH
+echo "Writing user configuration..."
 cp $MADBASH/templates/dot.bash_profile $HOME/.bash_profile
+echo "Installed!"
+
+echo
 source $HOME/.bash_profile
