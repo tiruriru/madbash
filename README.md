@@ -4,6 +4,10 @@ This is my personal bash configuration bundle built with "implement when needed"
 end up with slim pack of utils that I actually use. If you like this minimal approach feel
 free to fork this repo and work your own bundle around it.
 
+Here's the picture of crazy cat:
+
+![Crazy Cat](http://i.imgur.com/y4BfhGn.jpg)
+
 ## Installation
 
 To install Mad Bash just execute the following line in your terminal:
