@@ -6,8 +6,12 @@ free to fork this repo and work your own bundle around it.
 
 ## Installation
 
-TODO: ...
+To install Mad Bash just execute the following line in your terminal:
 
+    $ curl -sL http://git.io/7Alm5w | bash
+    
+That's it!
+    
 ## Copying
 
 Copyright (C) 2013 Chris Kowalik, <chris@nu7hat.ch><br />
