@@ -20,6 +20,10 @@ OS=`uname -s`
 
 # Load plugins.
 #-------------------------------------------------------------------------------
+if [[ $PLUGINS == 'all' ]]; then
+    PLUGINS=$(ls -1 $MADBASH/plugins | grep '.bash$' | sed -e 's/\.bash//')
+fi
+
 for plugin in $PLUGINS; do
     echo -n .
     source $MADBASH/plugins/${plugin}.bash
