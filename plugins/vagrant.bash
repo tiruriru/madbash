@@ -7,6 +7,7 @@
 # Custom aliases.
 #-------------------------------------------------------------------------------
 alias vup='vagrant up'
+alias vht='vagrant halt'
 alias vpr='vagrant provision'
 alias vsd='vagrant suspend'
 alias vre='vagrant resume'
