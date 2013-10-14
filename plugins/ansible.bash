@@ -1,13 +1,12 @@
 #-------------------------------------------------------------------------------
-# file: plugins/bundler.bash
+# file: plugins/ansible.bash
 #
-# Bundler aliases and extras.
+# Ansible aliases and extras.
 #-------------------------------------------------------------------------------
 
 # Custom aliases.
 #-------------------------------------------------------------------------------
-alias be='bundle exec'
-alias bi='bundle install'
-alias bl='bundle list'
-alias bu='bundle update'
-alias bp='bundle package'
+alias apb='ansible-playbook'
+alias apv='ansible-playbook -v'
+alias ans='ansible'
+alias anv='ansible -v'
